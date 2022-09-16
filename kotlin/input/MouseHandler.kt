@@ -8,7 +8,7 @@ import java.awt.event.MouseMotionListener
 class MouseHandler : MouseListener, MouseMotionListener {
 
     override fun mouseDragged(e: MouseEvent) {
-        if((e.x >= RealPlayer.x - 10 && e.x <= RealPlayer.x + 40) && (e.y >= RealPlayer.y + 20 && e.y <= RealPlayer.y + 70)) {
+        if(((e.x >= RealPlayer.x - 10 && e.x <= RealPlayer.x + 40) && (e.y >= RealPlayer.y + 20 && e.y <= RealPlayer.y + 70)) && ((!RealPlayer.crashed) && (!RealPlayer.finish))) {
             RealPlayer.x = e.x - 12
             RealPlayer.y = e.y - 40
         }
