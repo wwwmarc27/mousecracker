@@ -1,11 +1,11 @@
 package actions
 
-import clocks.MovementClock
+import clocks.Clock
 import gui.Gui
 import player.RealPlayer
 
 fun main(args: Array<String>) {
     RealPlayer()
-    MovementClock().start()
+    Clock().start()
     Gui()
 }
