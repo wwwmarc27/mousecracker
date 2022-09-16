@@ -16,6 +16,7 @@ class RealPlayer {
         var x: Int = Gui.WIDTH / 2 - 12
         var y: Int = Gui.HEIGHT - 60
         lateinit var spielerImage: BufferedImage
+        var crashed: Boolean = false
     }
 
     init {

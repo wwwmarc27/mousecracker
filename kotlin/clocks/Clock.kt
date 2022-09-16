@@ -9,7 +9,7 @@ class Clock : Thread() {
     override fun run() {
         super.run()
 
-        while(true) {
+        while(!RealPlayer.crashed) {
             // Movement
             for (element in Draw.opponent) {
                 if(element.richtungRechts) {
@@ -31,8 +31,8 @@ class Clock : Thread() {
                 }
 
                 if(element in Draw.opponent) {
-                    if(element.x >= RealPlayer.x - 5 && element.x <= RealPlayer.x + 30 && element.y >= RealPlayer.y + 5 && element.y <= RealPlayer.y + 35) {
-                        println("Collision")
+                    if(element.x  + 25 >= RealPlayer.x + 5 && element.x <= RealPlayer.x + 20 && element.y  + 24 >= RealPlayer.y + 5 && element.y <= RealPlayer.y + 30) {
+                        RealPlayer.crashed = true
                     }
                 }
 
