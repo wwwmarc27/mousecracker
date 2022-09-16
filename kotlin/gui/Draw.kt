@@ -42,6 +42,12 @@ class Draw : JLabel() {
         //draw Rectangle (Spieler)
         g2d.drawImage(RealPlayer.spielerImage, RealPlayer.x, RealPlayer.y, null)
 
+        //draw breakmenu
+        if(RealPlayer.crashed) {
+            g2d.color = Color(240, 240, 240, 150)
+            g2d.fillRect(0, 0, Gui.WIDTH, Gui.HEIGHT)
+        }
+
         repaint()
     }
 }
