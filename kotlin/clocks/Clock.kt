@@ -3,7 +3,7 @@ package clocks
 import gui.Draw
 import gui.Gui
 
-class MovementClock : Thread() {
+class Clock : Thread() {
 
     override fun run() {
         super.run()
@@ -31,5 +31,4 @@ class MovementClock : Thread() {
 
         }
     }
-
 }
