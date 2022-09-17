@@ -11,7 +11,7 @@ class FontLoader()  {
 
     init {
         try {
-            font = Font.createFont(Font.TRUETYPE_FONT, File("src/main/resources/aureola.regular.ttf"))
+            font = Font.createFont(Font.TRUETYPE_FONT, File("src/main/resources/collision.ttf"))
         } catch (e: Exception) {
             println(e.stackTrace)
         }
