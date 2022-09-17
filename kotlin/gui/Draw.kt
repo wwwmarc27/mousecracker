@@ -3,12 +3,9 @@ package gui
 
 import player.Destination
 import player.Opponents
-import java.awt.Graphics
-import java.awt.Graphics2D
-import java.awt.RenderingHints
 import javax.swing.JLabel
 import player.RealPlayer
-import java.awt.Color
+import java.awt.*
 
 class Draw : JLabel() {
 
@@ -30,6 +27,9 @@ class Draw : JLabel() {
         g2d.color = Color.BLACK
         g2d.fillRect(0, 0, Gui.WIDTH, Gui.HEIGHT)
 
+        //setting Font
+        g2d.font = FontLoader.font.deriveFont(80f)
+
         //draw Destination (Ziel)
         g2d.color = Destination.color
         g2d.fillOval(Destination.x, Destination.y, 25, 25)
@@ -46,6 +46,10 @@ class Draw : JLabel() {
         if(RealPlayer.crashed || RealPlayer.finish) {
             g2d.color = Color(240, 240, 240, 150)
             g2d.fillRect(0, 0, Gui.WIDTH, Gui.HEIGHT)
+
+            //draw lost
+            g2d.color = Color(255, 0 , 0)
+            g2d.drawString("Verloren", ((Gui.WIDTH / 2) - 120), 80)
         }
 
         repaint()
