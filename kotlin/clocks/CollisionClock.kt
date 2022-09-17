@@ -4,8 +4,20 @@ import gui.Draw
 import gui.Gui
 import player.Destination
 import player.RealPlayer
+import sounds.MusicLoader
+import sounds.Sound
+import java.io.File
 
 class CollisionClock : Thread() {
+    private val sCollision: Sound = Sound()
+    private val sLevelup: Sound = Sound()
+    private var soundCollision: MusicLoader = MusicLoader()
+    private var soundLevelup: MusicLoader = MusicLoader()
+
+    init {
+        soundCollision.loadSound(File("src/main/resources/collision.wav"))
+        soundLevelup.loadSound(File("src/main/resources/levelup.wav"))
+    }
 
     override fun run() {
         super.run()
@@ -26,6 +38,8 @@ class CollisionClock : Thread() {
                 if(element in Draw.opponent) {
                     if(element.x  + 25 >= RealPlayer.x + 5 && element.x <= RealPlayer.x + 20 && element.y  + 24 >= RealPlayer.y + 5 && element.y <= RealPlayer.y + 30) {
                         RealPlayer.crashed = true
+                        sCollision.playSound(soundCollision.sound)
+
                     }
                 }
 
@@ -34,6 +48,7 @@ class CollisionClock : Thread() {
             //Spielerziel -> nächstes Level
             if(RealPlayer.x + 10 >= Destination.x && RealPlayer.x <= Destination.x + 10 && RealPlayer.y + 15 >= Destination.y && RealPlayer.y <= Destination.y) {
                 RealPlayer.finish = true
+                sLevelup.playSound(soundLevelup.sound)
             }
 
             sleep(5)
