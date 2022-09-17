@@ -47,9 +47,15 @@ class Draw : JLabel() {
             g2d.color = Color(240, 240, 240, 150)
             g2d.fillRect(0, 0, Gui.WIDTH, Gui.HEIGHT)
 
-            //draw lost
-            g2d.color = Color(255, 0 , 0)
-            g2d.drawString("Verloren", ((Gui.WIDTH / 2) - 120), 80)
+            if(RealPlayer.crashed) {
+                //draw lost, if crashed
+                g2d.color = Color(255, 0 , 0)
+                g2d.drawString("Verloren", ((Gui.WIDTH / 2) - 110), 80)
+            } else {
+                //draw win, if win
+                g2d.color = Color(0, 255 , 0)
+                g2d.drawString("Gewonnen", ((Gui.WIDTH / 2) - 135), 80)
+            }
         }
 
         repaint()
