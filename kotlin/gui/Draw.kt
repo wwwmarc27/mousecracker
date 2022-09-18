@@ -1,6 +1,7 @@
 package gui
 
 
+import actions.MyButton
 import player.Destination
 import player.Opponents
 import javax.swing.JLabel
@@ -10,7 +11,8 @@ import java.awt.*
 class Draw : JLabel() {
 
     companion object {
-        var opponents: MutableList<Opponents> = mutableListOf()
+        val opponents: MutableList<Opponents> = mutableListOf()
+        val buttonNewGame: MyButton = MyButton(Gui.WIDTH / 2 - 75, 130, 150, 25, "Neues Spiel", Color.LIGHT_GRAY)
     }
 
     init {
@@ -53,6 +55,17 @@ class Draw : JLabel() {
             //draw String: Verlorem
             g2d.color = Color(255, 0 , 0)
             g2d.drawString("Verloren", ((Gui.WIDTH / 2) - 110), 80)
+
+            //Stringwidth in pixel
+            g2d.font = FontLoader.font.deriveFont(15f)
+            val fontmetrics: FontMetrics = g2d.fontMetrics
+            val stringwidth: Int = fontmetrics.stringWidth(buttonNewGame.text)
+
+            //draw button new game
+            g2d.color = buttonNewGame.basicColor
+            g2d.fillRect(buttonNewGame.x, buttonNewGame.y, buttonNewGame.width, buttonNewGame.height)
+            g2d.color = Color.BLACK
+            g2d.drawString(buttonNewGame.text, (buttonNewGame.x + 75) - (stringwidth / 2), buttonNewGame.y + 17)
         }
 
         //draw breakmenu, if finished
