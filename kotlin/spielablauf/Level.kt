@@ -1,4 +1,4 @@
-package klassenplanung
+package spielablauf
 
 import gui.Draw
 import player.Opponents

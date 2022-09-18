@@ -3,13 +3,14 @@ package sounds
 import java.io.File
 
 class MusicLoader {
-    lateinit var sound: File
 
-    fun loadSound(sound: File) {
-        try {
-            this.sound = sound
-        } catch (e: Exception) {
-            println(e.stackTrace)
-        }
+    companion object {
+        lateinit var soundCollision: File
+        lateinit var soundLevelup: File
+    }
+
+    init {
+        soundCollision = File("src/main/resources/collision.wav")
+        soundLevelup = File("src/main/resources/levelup.wav")
     }
 }

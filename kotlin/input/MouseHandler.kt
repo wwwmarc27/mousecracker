@@ -1,6 +1,9 @@
 package input
 
+import clocks.CollisionClock
+import clocks.MovementClock
 import gui.Draw
+import gui.Gui
 import player.RealPlayer
 import java.awt.event.MouseEvent
 import java.awt.event.MouseListener
@@ -19,8 +22,11 @@ class MouseHandler : MouseListener, MouseMotionListener {
     override fun mouseClicked(e: MouseEvent) {
         //Hitbox button New Game
         if((e.x >= Draw.buttonNewGame.x && e.x <= Draw.buttonNewGame.x + 150 && e.y >= Draw.buttonNewGame.y + 20 && e.y <= (Draw.buttonNewGame.y + 45)) && (RealPlayer.crashed)) {
-            //Funktioniert
-            //mit Inhalt füllen
+            RealPlayer.crashed = false
+            RealPlayer.x = Gui.WIDTH / 2 - 12
+            RealPlayer.y = Gui.HEIGHT - 60
+            MovementClock().start()
+            CollisionClock().start()
         }
     }
 

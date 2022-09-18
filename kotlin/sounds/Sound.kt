@@ -5,7 +5,7 @@ import javax.sound.sampled.AudioSystem
 import javax.sound.sampled.Clip
 import javax.sound.sampled.FloatControl
 
-class Sound {
+object Sound {
     var volume: Float = 0f
 
     fun playSound(sound: File) {
