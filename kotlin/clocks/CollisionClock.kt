@@ -24,7 +24,7 @@ class CollisionClock : Thread() {
 
         while(!RealPlayer.finish && !RealPlayer.crashed) {
             //Collision
-            for (element in Draw.opponent) {
+            for (element in Draw.opponents) {
 
                 //Prüfen ob Gegner an Fensterrand anstoßen
                 //wenn ja, Richtung ändern
@@ -35,14 +35,13 @@ class CollisionClock : Thread() {
                 }
 
                 //Gegnerkollision
-                if(element in Draw.opponent) {
+                if(element in Draw.opponents) {
                     if(element.x  + 25 >= RealPlayer.x + 5 && element.x <= RealPlayer.x + 20 && element.y  + 24 >= RealPlayer.y + 5 && element.y <= RealPlayer.y + 30) {
                         RealPlayer.crashed = true
                         sCollision.playSound(soundCollision.sound)
 
                     }
                 }
-
             }
 
             //Spielerziel -> nächstes Level
@@ -50,9 +49,7 @@ class CollisionClock : Thread() {
                 RealPlayer.finish = true
                 sLevelup.playSound(soundLevelup.sound)
             }
-
             sleep(5)
         }
     }
-
 }

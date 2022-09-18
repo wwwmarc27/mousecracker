@@ -10,7 +10,7 @@ class MovementClock : Thread() {
 
         while((!RealPlayer.crashed) && (!RealPlayer.finish)) {
             // Movement
-            for (element in Draw.opponent) {
+            for (element in Draw.opponents) {
                 if(element.richtungRechts) {
                     element.x += element.bewegungsSchritt
                 } else {
